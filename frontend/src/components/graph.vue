@@ -191,21 +191,15 @@ export default {
         this.graphFunction1 = "(" + this.selected + "*2*" + this.participants + ")/1000";
 
         let videoCons = this.participants + "* (37 / 100) * ((" + this.selected2 + ")/x)";
-        //let videoCons1 = Algebrite.simplify(videoCons).toString();
         let laptopCons = this.participants + " * ((" + this.selected2 + ")/x)";
-        //let laptopCons1 = Algebrite.simplify(laptopCons).toString();
         let zoomCons = "3 * ((" + this.selected2 + ")/x)";
-        //let zoomCons1 = Algebrite.simplify(zoomCons).toString();
         this.graphFunction2 = "(" + videoCons + "+" + laptopCons + "+" + zoomCons + ")/1000";
       } else {//use x axis as time spent
         this.graphFunction1 = "((" + this.selected + ")/x*2*10*" + this.participants + ")/1000";
 
-        let videoCons = this.participants + "* (37 / 100) *" + this.selected2;
-        //let videoCons1 = Algebrite.simplify(videoCons).toString();
+        let videoCons = this.participants + "* (37 / 1000) *" + this.selected2;
         let laptopCons = this.participants + "* (1 / 10) *" + this.selected2;
-        //let laptopCons1 = Algebrite.simplify(laptopCons).toString();
         let zoomCons = "(3 / 10) *" + this.selected2;
-        //let zoomCons1 = Algebrite.simplify(zoomCons).toString();
         this.graphFunction2 = "(" + videoCons + "+" + laptopCons + "+" + zoomCons + ")/1000";
       }
 

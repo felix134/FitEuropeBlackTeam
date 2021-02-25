@@ -123,11 +123,11 @@
     <div>
       TODO
     </div>
-    <div>
-      <iframe
-          src='https://www.eea.europa.eu/data-and-maps/daviz/co2-emission-intensity-5/embed-chart?chart=googlechartid_chart_11&chartWidth=772&chartHeight=575&padding=fixed&customStyle=.googlechart_view{margin-left:0px%3B}&skipdaviztitle=true&skipcharttitle=true'
-          loading="lazy" style="width: 100%; height: 600px; border: 0px none;"></iframe>
-    </div>
+<!--    <div>-->
+<!--      <iframe-->
+<!--          src='https://www.eea.europa.eu/data-and-maps/daviz/co2-emission-intensity-5/embed-chart?chart=googlechartid_chart_11&chartWidth=772&chartHeight=575&padding=fixed&customStyle=.googlechart_view{margin-left:0px%3B}&skipdaviztitle=true&skipcharttitle=true'-->
+<!--          loading="lazy" style="width: 100%; height: 600px; border: 0px none;"></iframe>-->
+<!--    </div>-->
     <br/>
     <br/>
     <br/>
