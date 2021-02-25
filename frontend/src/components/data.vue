@@ -65,14 +65,14 @@
     </div>
     <br/>
 
-<!--    <div class="panel">-->
-<!--      <div class="panel-body">-->
-<!--        <div class="row">-->
-<!--          <iframe width="1024" height="640" src="http://globalcarbonatlas.org/en/CO2-emissions" frameborder="0"></iframe>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--    <br/>-->
+    <!--    <div class="panel">-->
+    <!--      <div class="panel-body">-->
+    <!--        <div class="row">-->
+    <!--          <iframe width="1024" height="640" src="http://globalcarbonatlas.org/en/CO2-emissions" frameborder="0"></iframe>-->
+    <!--        </div>-->
+    <!--      </div>-->
+    <!--    </div>-->
+    <!--    <br/>-->
 
     <div class="text-left">
       As a result, a calculation of given scenario is given in the following. As a rough approximation, is is assumed
@@ -122,6 +122,11 @@
     <hr/>
     <div>
       TODO
+    </div>
+    <div>
+      <iframe
+          src='https://www.eea.europa.eu/data-and-maps/daviz/co2-emission-intensity-5/embed-chart?chart=googlechartid_chart_11&chartWidth=772&chartHeight=575&padding=fixed&customStyle=.googlechart_view{margin-left:0px%3B}&skipdaviztitle=true&skipcharttitle=true'
+          loading="lazy" style="width: 100%; height: 600px; border: 0px none;"></iframe>
     </div>
     <br/>
     <br/>
