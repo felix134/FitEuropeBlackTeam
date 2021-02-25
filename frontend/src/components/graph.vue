@@ -14,9 +14,8 @@
           <div class="card-body">
             <h4>Graph Settings</h4>
             <hr/>
-            <h6 class="card-subtitle mb-2 text-muted">The default Time for a Zoom-Meeting is 1 hour, the default
-              distance
-              for each participant of a meeting is 100km.</h6>
+            <h6 class="card-subtitle mb-2 text-muted">Depending on the graph's x axis' type, default values are taken
+              for the calculations.</h6>
             <hr/>
             <b-col class="input-group-lg ml-auto">
               Number of participants:
@@ -35,14 +34,20 @@
 
       <!--      Zoom Settings-->
       <div class="col-lg-4">
-        <div class="card" style="width: 18rem;">
+        <div class="card" style="width: 18rem; color: #0000ff">
           <div class="card-body">
             <h4>Zoom Settings</h4>
-<!--            <hr/>-->
-<!--            <h6 class="card-subtitle mb-2 text-muted">TODO</h6>-->
+            <hr/>
+            <h6 class="card-subtitle mb-2 text-muted">The default time for a Zoom-Meeting are 10 hours if the graph is
+              based on "Distance".</h6>
             <hr/>
             <b-col class="input-group-lg ml-auto">
-              TODO
+              Select the country where the power origins from:
+              <b-form-select v-model="selected2" :options="options2" v-on:change="plot" size="sm"
+                             class="mt-3"></b-form-select>
+              <!--              <input v-model="graphFunction2" type="text" class="c3-input" v-on:change="plot">-->
+              <!--              Current plot:-->
+              <!--              <p>{{ graphFunctionClean2 }}</p>-->
             </b-col>
           </div>
         </div>
@@ -50,17 +55,20 @@
 
       <!--      Travel Settings-->
       <div class="col-lg-4">
-        <div class="card" style="width: 18rem;">
+        <div class="card" style="width: 18rem; color: #ff8c00">
           <div class="card-body">
             <h4>Traveling Settings</h4>
             <hr/>
-            <h6 class="card-subtitle mb-2 text-muted">Depending on the selected travel type, the overall result highly
-              differs.</h6>
+            <h6 class="card-subtitle mb-2 text-muted">The default distance for each participant of a meeting is 10 km,
+              if the graph is
+              based on "Meeting Time".</h6>
             <hr/>
             <b-col class="input-group-lg ml-auto">
               Select the travel type:
               <b-form-select v-model="selected" :options="options" v-on:change="plot" size="sm"
                              class="mt-3"></b-form-select>
+              <!--              Current plot:-->
+              <!--              <p>{{ graphFunctionClean1 }}</p>-->
               <!--              First function (0 deletes graph):-->
               <!--              <input v-model="graphFunction1" type="text" class="c3-input" v-on:change="plot">-->
               <!--              <p></p>-->
@@ -90,7 +98,6 @@ export default {
   data() {
     return {
       options: [
-        // {value: 0, text: 'Select travel type'},
         {value: "x*16", text: 'Cycling (efficient)'},
         {value: "x*50", text: 'Cycling (inefficient)'},
         {value: "x*105", text: 'Small car (hybrid)'},
@@ -113,6 +120,14 @@ export default {
       ],
       selected: [0],
 
+      options2: [
+        {value: "x*440", text: 'Germany'},
+        {value: "x*58", text: 'France'},
+        {value: "x*256", text: 'Italy'},
+        {value: "x*306", text: 'Romania'},
+      ],
+      selected2: [0],
+
       participants: 25,
       useDistance: true,
 
@@ -120,12 +135,14 @@ export default {
 
       graphFunction1: "x",
       graphFunction2: "x*x",
+      graphFunctionClean1: "x",
+      graphFunctionClean2: "x*x",
       minX: 0,
       maxX: 100,
       minY: 0,
       maxY: 400,
-      coloring1: "#0000ff",
-      coloring2: "#43ff00",
+      coloring1: "#ff8c00",
+      coloring2: "#0000ff",
 
       graphInput1Border: "lightgray",
       graphInput2Border: "lightgray",
@@ -155,7 +172,7 @@ export default {
         grid: true,
         width: 1000,
         height: 500,
-        disableZoom: false,
+        disableZoom: true,
         yAxis: {domain: [this.minY, this.maxY], label: "CO2 Emissions [kg]"},
         xAxis: {domain: [this.minX, this.maxX], label: ""}
       },
@@ -163,16 +180,38 @@ export default {
   },
   methods: {
     plot: function () {
+      // Network consumption HD video meeting ~ 0.037 kWh / hour / participants
+      // Personal Laptop consumption ~ 0.100 kWh / hour / participants
+      // Zoom server consumption ~ 0.300 kWh / hour
+
+      //Selected 2 is in g CO2 / kWh
+
       if (this.useDistance) {//use x axis as distance
-        //add params to basic function (*2: two way travel) //TODO DISTANCE OR TIME
+        //add params to basic function (*2: two way travel)
         this.graphFunction1 = "(" + this.selected + "*2*" + this.participants + ")/1000";
+
+        let videoCons = this.participants + "* (37 / 100) * ((" + this.selected2 + ")/x)";
+        //let videoCons1 = Algebrite.simplify(videoCons).toString();
+        let laptopCons = this.participants + " * ((" + this.selected2 + ")/x)";
+        //let laptopCons1 = Algebrite.simplify(laptopCons).toString();
+        let zoomCons = "3 * ((" + this.selected2 + ")/x)";
+        //let zoomCons1 = Algebrite.simplify(zoomCons).toString();
+        this.graphFunction2 = "(" + videoCons + "+" + laptopCons + "+" + zoomCons + ")/1000";
       } else {//use x axis as time spent
-        this.graphFunction1 = "((" + this.selected + ")/x*2*" + this.participants + ")/1000";
+        this.graphFunction1 = "((" + this.selected + ")/x*2*10*" + this.participants + ")/1000";
+
+        let videoCons = this.participants + "* (37 / 100) *" + this.selected2;
+        //let videoCons1 = Algebrite.simplify(videoCons).toString();
+        let laptopCons = this.participants + "* (1 / 10) *" + this.selected2;
+        //let laptopCons1 = Algebrite.simplify(laptopCons).toString();
+        let zoomCons = "(3 / 10) *" + this.selected2;
+        //let zoomCons1 = Algebrite.simplify(zoomCons).toString();
+        this.graphFunction2 = "(" + videoCons + "+" + laptopCons + "+" + zoomCons + ")/1000";
       }
 
       //simplify function
-      let f1 = Algebrite.simplify(this.graphFunction1).toString();
-      let f2 = Algebrite.simplify(this.graphFunction2).toString();
+      this.graphFunctionClean1 = Algebrite.simplify(this.graphFunction1).toString();
+      this.graphFunctionClean2 = Algebrite.simplify(this.graphFunction2).toString();
       let xMin = this.minX;
       let xMax = this.maxX;
       let yMin = this.minY;
@@ -180,20 +219,20 @@ export default {
       let color1 = this.coloring1;
       let color2 = this.coloring2;
 
-      this.parameters.data[0].fn = f1;
-      this.parameters.data[1].fn = f2;
+      this.parameters.data[0].fn = this.graphFunctionClean1;
+      this.parameters.data[1].fn = this.graphFunctionClean2;
       this.parameters.xAxis.domain = [xMin, xMax];
       this.parameters.yAxis.domain = [yMin, yMax];
 
       // Plot graph in white and probably outside of the graph in order to hide them
       // Use 325 to raise the chances that the hidden function does not cross a gridline
-      if (f1 === '0' || f1 === 'nil') {
+      if (this.graphFunctionClean1 === '0' || this.graphFunctionClean1 === 'nil') {
         this.parameters.data[0].fn = yMin + "-325"
         this.parameters.data[0].color = '#ffffff';
       } else
         this.parameters.data[0].color = color1;
 
-      if (f2 === '0' || f2 === 'nil') {
+      if (this.graphFunctionClean2 === '0' || this.graphFunctionClean2 === 'nil') {
         this.parameters.data[1].fn = yMin + "-325"
         this.parameters.data[1].color = '#ffffff';
       } else {
