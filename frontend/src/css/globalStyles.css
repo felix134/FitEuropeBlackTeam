@@ -1,0 +1,148 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.box {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+}
+
+.box .content {
+    flex: 1 1 auto;
+}
+
+.box .footer {
+    flex: 0 1 auto;
+}
+
+.c3-headerImg {
+    background-image: url('../assets/header2.png');
+    background-size: 100% 100%;
+}
+
+.c3-transparent {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.c3-transparent-grey {
+    background-color: rgba(91, 90, 90, 0.5);
+}
+
+.c3-shadow {
+    text-shadow: 4px 4px 8px #000000;
+}
+
+.c3-center-text {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+.c3-centered {
+    text-align: center;
+}
+
+.c3-white-text {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.c3-word-wrap {
+    word-wrap: break-word;
+}
+
+.c3-margin {
+    margin: 1px 1px 1px 1px;
+}
+
+.c3-pull-right {
+    margin-right: 10px !important;
+    float: right !important;
+}
+
+.c3-button-with-margin {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.c3-cancel-button {
+
+}
+
+.c3-confirm-button {
+
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.c3-input {
+    max-height: 45px;
+    font-size: 16px;
+    font-size: max(16px, 1em);
+    font-family: inherit;
+    padding: 0.25em 0.5em;
+    background-color: #fff;
+    border: 1px solid lightgray;
+    border-radius: 4px;
+    outline: none;
+    width: 100%;
+    color: #495057;
+}
+
+.c3-textarea {
+    font-size: 16px;
+    font-size: max(16px, 1em);
+    font-family: inherit;
+    padding: 0.25em 0.5em;
+    background-color: #fff;
+    border-radius: 4px;
+    border: 1px solid lightgray;
+    outline: none;
+    resize: none;
+    width: 100%;
+    overflow-y: scroll;
+    color: #495057;
+}
+
+.disabled-visible input[type=radio] {
+    appearance: none;
+}
+
+.disabled-visible input[type=radio]:focus {
+    border: none;
+}
+
+.disabled-visible label:before {
+    content: "";
+    display: inline-block;
+    position: relative;
+    top: 5px;
+    margin: 0 5px 0 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 11px;
+    border: 2px solid #004c97;
+    background-color: transparent;
+}
+
+.disabled-visible input[type=radio]:checked + label:after {
+    border-radius: 11px;
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    top: 9px;
+    left: 9px;
+    content: "";
+    display: block;
+    background: #000000;
+}
+
+input:focus, textarea:focus {
+    box-shadow: 0 0 3px rgba(81, 203, 238, 1);
+    padding: 0.25em 0.5em;
+    border: 1px solid rgba(81, 203, 238, 1);
+}
