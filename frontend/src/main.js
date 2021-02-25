@@ -40,9 +40,6 @@ import InputText from 'primevue/inputtext';
 import Button from 'primevue/button';
 import Card from 'primevue/card';
 import titleComponent from './components/titleComponent.vue';
-import Panel from "primevue/components/panel/Panel";
-import axios from "axios";
-import Chart from 'primevue/chart';
 
 library.add(
     faCoffee, faChild, faCircle, faArchive, faGlobe, faPaperPlane, faNewspaper, faHeart,
