@@ -2,17 +2,22 @@
   <div>
     <div class="col-lg-12">
       <div :id="'myFunction'"></div>
-      {{this.label()}}
+      {{ this.label() }}
     </div>
     <br/>
 
     <div class="row">
+
+      <!--      Graph Setting-->
       <div class="col-lg-4">
-        <Card>
-          <template #header><h4>Graph Settings</h4><hr/></template>
-          <template #subtitle>The default Time for a Zoom-Meeting is 1 hour, the default distance
-            for each participant of a meeting is 100km.<hr/></template>
-          <template #content>
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h4>Graph Settings</h4>
+            <hr/>
+            <h6 class="card-subtitle mb-2 text-muted">The default Time for a Zoom-Meeting is 1 hour, the default
+              distance
+              for each participant of a meeting is 100km.</h6>
+            <hr/>
             <b-col class="input-group-lg ml-auto">
               Number of participants:
               <b-form-spinbutton v-model="participants" min="5" max="500" step="5" size="sm" v-on:change="plot"
@@ -23,41 +28,41 @@
               </b-form-radio>
               <b-form-radio v-model="useDistance" v-on:change="plot" name="some-radios" :value="false">Meeting Time
               </b-form-radio>
+            </b-col>
+          </div>
+        </div>
+      </div>
 
-            </b-col>
-          </template>
-        </Card>
-      </div>
+      <!--      Zoom Settings-->
       <div class="col-lg-4">
-        <Card>
-          <template #header><h4>Zoom Settings</h4><hr/></template>
-          <template #content>
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h4>Zoom Settings</h4>
+<!--            <hr/>-->
+<!--            <h6 class="card-subtitle mb-2 text-muted">TODO</h6>-->
+            <hr/>
             <b-col class="input-group-lg ml-auto">
-              <!--              xMin:-->
-              <!--              <input type=number class="c3-input" v-model="minX" v-on:change="plot" value=-5 step=0.5>-->
-              <!--              <p></p>-->
-              <!--              xMax:-->
-              <!--              <input type=number class="c3-input" v-model="maxX" v-on:change="plot" value=6.28 step=0.5>-->
-              <!--              <p></p>-->
-              <!--              yMin:-->
-              <!--              <input type=number class="c3-input" v-model="minY" v-on:change="plot" value=-6 step=0.5>-->
-              <!--              <p></p>-->
-              <!--              yMax:-->
-              <!--              <input type=number class="c3-input" v-model="maxY" v-on:change="plot" value=6 step=0.5>-->
+              TODO
             </b-col>
-          </template>
-        </Card>
+          </div>
+        </div>
       </div>
+
+      <!--      Travel Settings-->
       <div class="col-lg-4">
-        <Card>
-          <template #header><h4>Traveling Settings</h4><hr/></template>
-          <template #content>
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h4>Traveling Settings</h4>
+            <hr/>
+            <h6 class="card-subtitle mb-2 text-muted">Depending on the selected travel type, the overall result highly
+              differs.</h6>
+            <hr/>
             <b-col class="input-group-lg ml-auto">
               Select the travel type:
               <b-form-select v-model="selected" :options="options" v-on:change="plot" size="sm"
                              class="mt-3"></b-form-select>
               <!--              First function (0 deletes graph):-->
-              <input v-model="graphFunction1" type="text" class="c3-input" v-on:change="plot">
+              <!--              <input v-model="graphFunction1" type="text" class="c3-input" v-on:change="plot">-->
               <!--              <p></p>-->
               <!--              Color of the first graph:-->
               <!--              <input type=color class="c3-input" v-model="coloring1" v-on:change="plot">-->
@@ -68,8 +73,8 @@
               <!--              Color of the second graph:-->
               <!--              <input type=color class="c3-input" v-model="coloring2" v-on:change="plot">-->
             </b-col>
-          </template>
-        </Card>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -199,7 +204,7 @@ export default {
     },
     label: function () {
       if (this.useDistance) {
-        return  "Distance [km]";
+        return "Distance [km]";
       } else {
         return "Time of the Meeting [h]";
       }
