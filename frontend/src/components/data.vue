@@ -31,22 +31,22 @@
     <br/>
     <h4>Travel Emissions</h4>
     <hr/>
-    <div class="text-left">
+    <div class="text-right">
       As an approximation, we take the average distance from each city to passau. Thus, the following values can be
       derived
     </div>
-    <div class="text-left">(Source: <a href="https://www.google.com/maps/">Google maps</a>):</div>
-    <div class="text-left">
+    <div class="text-right">(Source: <a href="https://www.google.com/maps/">Google maps</a>):</div>
+    <div class="text-right">
       <b>Car</b>: Lyon - Passau: 916 km, Milan - Passau: 679 km, Bucharest - Passau: 1,357 km (Fastest path via car)
     </div>
-    <div class="text-left">
+    <div class="text-right">
       <b>Train</b>: No Data found, assumes the same distance as for the car.
     </div>
-    <div class="text-left">
+    <div class="text-right">
       <b>Plane</b>: Lyon - Passau: 445 km, Milan - Passau: 292 km, Bucharest - Passau: 1,080 km (Direct path)
     </div>
     <br/>
-    <div class="text-left">
+    <div class="text-right">
       The travel distance in combination of its carbon footprint (based on the type of used vehicle) results in the
       overall emission of the given trip.
     </div>
@@ -104,7 +104,7 @@
         "Bucharest"-Emissions:
       </b>
       10 [Bucharest Participants] * 2 [travel back and forth] * 1,357 [km traveled by plane]
-      * 156 [g of CO2 by train travelling] = 4,233.840 [kg of CO2]
+      * 156 [g of CO2 by plane travelling] = 4,233.840 [kg of CO2]
     </div>
     <div class="text-left">
       <b>
@@ -128,7 +128,7 @@
       <b>
         "Zoom"-Power Consumption:
       </b>
-      0.037 [kWh / hour / participants] + 0.100 [kWh / hour / participants + 0.300 kWh / hour]
+      0.037 [kWh / hour / participants] + 0.100 [kWh / hour / participants] + [0.300 kWh / hour]
     </div>
     <br/>
     <div class="text-left">
@@ -176,20 +176,8 @@
     <h4>Limitations</h4>
     <hr/>
     <div class="text-right">
-      The local emissions factor for each person was also not taken into consideration. The reason is, that the
-      calculation highly depends on the country and its distribution of different energy sources like coal, atom or
-      renewables. Those factors, transforming a power consumption in Wh into its local emissions into g of CO2, can be
-      found in the literature.
-    </div>
-    <br/>
-    <div class="text-right">
       In our calculations it is assumed that each user device is connected to a physical BUS network. However, the
       emission also depends on the network type. For example, mobile connectivity uses 0.1kWh/GB.
-    </div>
-    <br/>
-    <div class="text-right">
-      The data from the data centers are also limited due to the fact that Zoom does not publish number? The consumption
-      is also approximated based on similar cloud servers in the related literature.
     </div>
     <br/>
     <div class="text-right">
