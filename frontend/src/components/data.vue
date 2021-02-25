@@ -13,8 +13,6 @@
     <br/>
     <br/>
     <br/>
-    <br/>
-    <br/>
 
     <!-- Additional Infos-->
     <h1 class="section-heading">Methods & Data Sources</h1>
@@ -30,7 +28,6 @@
     <div>
 
     </div>
-    <br/>
     <br/>
     <h4>Travel Emissions</h4>
     <hr/>
@@ -117,19 +114,64 @@
       <b>4,426.840 [kg of CO2]</b>
     </div>
     <br/>
-    <br/>
     <h4>Zoom Emissions</h4>
     <hr/>
-    <div>
-      TODO
+    <div class="text-left">
+      The power consumption of Zoom is the sum of three components: Firstly, the network consumption must be taken into
+      consideration. It will be assumed that for all devices simple LAN networks are used. Secondly, the consumption of
+      all end user devices is a significant factor. Unfortunately, the power consumption of the devices does highly
+      vary. Moreover, those devices are not used for Zoom only. As a result, our calculation assumes the usage of a
+      standard laptop. Thirdly, the Zoom server consumption must be added.
     </div>
-<!--    <div>-->
-<!--      <iframe-->
-<!--          src='https://www.eea.europa.eu/data-and-maps/daviz/co2-emission-intensity-5/embed-chart?chart=googlechartid_chart_11&chartWidth=772&chartHeight=575&padding=fixed&customStyle=.googlechart_view{margin-left:0px%3B}&skipdaviztitle=true&skipcharttitle=true'-->
-<!--          loading="lazy" style="width: 100%; height: 600px; border: 0px none;"></iframe>-->
-<!--    </div>-->
     <br/>
+    <div class="text-left">
+      <b>
+        "Zoom"-Power Consumption:
+      </b>
+      0.037 [kWh / hour / participants] + 0.100 [kWh / hour / participants + 0.300 kWh / hour]
+    </div>
     <br/>
+    <div class="text-left">
+      As the overall power consumption is now given, the emissions in kg per CO2 will be calculated. This number of
+      course depends on the power source. A power plant fueled by coal has a far worse ratio than solar panels for
+      example. The <a href="https://www.eea.europa.eu/data-and-maps/daviz/co2-emission-intensity-5">CO2 emission
+      intensity</a> for each participating county is given in the following.
+    </div>
+    <br/>
+    <div class="text-left">
+      <b>
+        "Germany"- Factor:
+      </b>
+      440.8 [g CO2 / kWh]
+    </div>
+    <div class="text-left">
+      <b>
+        "France"- Factor:
+      </b>
+      58.5 [g CO2 / kWh]
+    </div>
+    <div class="text-left">
+      <b>
+        "Italy"- Factor:
+      </b>
+      256.22 [g CO2 / kWh]
+    </div>
+    <div class="text-left">
+      <b>
+        "Romania"- Factor:
+      </b>
+      306 [g CO2 / kWh]
+    </div>
+    <br/>
+    <div class="text-left">
+      If the given data is put together, refer to our FitEurope example (10 participants for each country) a Zoom
+      session of 8 hours for 5 days would emmit <b>61.7 [kg of CO2]</b>.
+    </div>
+    <!--    <div>-->
+    <!--      <iframe-->
+    <!--          src='https://www.eea.europa.eu/data-and-maps/daviz/co2-emission-intensity-5/embed-chart?chart=googlechartid_chart_11&chartWidth=772&chartHeight=575&padding=fixed&customStyle=.googlechart_view{margin-left:0px%3B}&skipdaviztitle=true&skipcharttitle=true'-->
+    <!--          loading="lazy" style="width: 100%; height: 600px; border: 0px none;"></iframe>-->
+    <!--    </div>-->
     <br/>
     <h4>Limitations</h4>
     <hr/>
@@ -169,6 +211,16 @@
       Article on the limitations regarding the Zoom calculations.</a>)
     </div>
     <br/>
+    <br/>
+    <h1 class="section-heading">Summary</h1>
+    <hr/>
+    <div class="text-right">
+      To conclude, the Zoom session in our FitEurope context emits <b>61.7 [kg of CO2]</b>. To absorb those yearly
+      emissions, <b>3 Trees</b> are necessary.
+      The physical Meeting emits <b>4 426 [kg of CO2]</b> and thus requires <b>221 trees</b>.
+      However, keep in mind, that the emissions of CO2 are not the only dangers for our environment. In addition to
+      that, there might be emissions in terms of waste, water or the required area.
+    </div>
   </div>
 </template>
 
