@@ -58,11 +58,6 @@ Vue.component('vue-title', titleComponent);
 Vue.component('InputText', InputText);
 Vue.component('Button', Button);
 Vue.component('Card', Card);
-Vue.component('Panel', Panel);
-Vue.component('Chart', Chart)
-
-const URL = "http://localhost:8080";
-axios.defaults.baseURL = URL;
 
 new Vue({
     router,
